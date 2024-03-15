@@ -1,5 +1,3 @@
-# vim: set ft=rst:
+Link para deploy do projeto
 
-See https://help.pythonanywhere.com/ (or click the "Help" link at the top
-right) for help on how to use PythonAnywhere, including tips on copying and
-pasting from consoles, and writing your own web applications.
+https://leveau10.pythonanywhere.com/polls/
