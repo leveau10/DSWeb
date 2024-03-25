@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['leveau10.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'root.apps.RootConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
