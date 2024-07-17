@@ -8,7 +8,7 @@
         <h2>{{question.question_text}}</h2>
         <p><i>{{question.pub_date}}</i></p>
         {% if error %}
-            <p><b>{{error}}</b></p>
+            <dt><b style="color:red;" >ERROR:{{error}}</b></dt>
         {% endif %}
         <p>Selecione uma alternativa</p>
         <form action="{% url 'polls:vote' question.id %}" method="post">
