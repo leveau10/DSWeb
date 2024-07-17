@@ -1,31 +1,26 @@
-<html>
-    <head>
-        <title>Aplicação Enquetes</title>
-    </head>
-    <body>
-        <h1>Aplicação de Enquetes</h1>
-        <h2>Enquete #{{question.id}}</h2>
-        <h2>{{question.question_text}}</h2>
-        <p><i>{{question.pub_date}}</i></p>
-        {% if error %}
-            <dt><b style="color:red;" >ERROR:{{error}}</b></dt>
-        {% endif %}
-        <p>Selecione uma alternativa</p>
-        <form action="{% url 'polls:vote' question.id %}" method="post">
-            <ul>
-            {%csrf_token%}
-            {% for choice in question.choice_set.all %}
-                <li>
-                    <input type="radio" name="option" value="{{choice.id}}" id="choice{{forloop.couter}}"/>
-                    <label for="choice{{forloop.counter}}">
-                        {{choice.choice_text}}
-                    </label>
-                </li>
-            {% endfor %}
-            </ul>
-        <input type="submit" value="Votar"/>
-        </form>
-        <hr>
-        <a href= "{%url 'polls:index' %}">Voltar</a>
-    </body>
-</html>
+{% extends "polls/base.html" %}
+{% block content %}
+    <h2>Enquete #{{question.id}}</h2>
+    <h2>{{question.question_text}}</h2>
+    <p><i>{{question.pub_date}}</i></p>
+    {% if error %}
+        <dt><b style="color:red;" >ERROR:{{error}}</b></dt>
+    {% endif %}
+    <p>Selecione uma alternativa</p>
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+        <ul>
+        {%csrf_token%}
+        {% for choice in question.choice_set.all %}
+            <li class="choice-item">
+                <input type="radio" name="option" value="{{choice.id}}" id="choice{{forloop.couter}}"/>
+                <label for="choice{{forloop.counter}}">
+                    {{choice.choice_text}}
+                </label>
+            </li>
+        {% endfor %}
+        </ul>
+    <input class="button" type="submit" value="Votar"/>
+    </form>
+    <hr>
+    <a href= "{%url 'polls:index' %}">Voltar</a>
+{% endblock %}

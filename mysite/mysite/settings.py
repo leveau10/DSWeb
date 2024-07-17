@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-suc$cihl1@o1^4izt+m(6x9yterl5dad2$8^1@!x3mblh__gj3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['leveau10.pythonanywhere.com']
+ALLOWED_HOSTS = ['leveau10.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -130,3 +130,7 @@ MEDIA_ROOT = '/home/leveau10/mysite/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = '/home/leveau10/mysite/static'
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/'),
+]
